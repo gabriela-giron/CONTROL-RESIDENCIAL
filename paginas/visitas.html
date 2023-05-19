@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Visitas.</title>
+</head>
+<body>
+    <div class="nav">
+        <h3 class="titulo-nav">Los Jardines.</h3>
+        <nav class="navegacion">
+            <ul class="opciones">
+                <li><a href="visitas.html">Solicitar visita</a></li>
+                <li><a href="residentes-login.html">Residentes</a></li>
+            </ul>
+        </nav>
+    </div>
+    <hr>
+    <div class="form1">
+        <img src="../img/JARDIN2.jpeg" alt="">
+        <form action="#" method="POST">
+            <h5>Solicita una</h5>
+            <h1 class="titulo">visita</h1>
+            <label for="nombres">Nombre(s)</label>
+            <input type="text" name="Nombre(s)" required>
+            <label for="apellidos">Apellido(s)</label>
+            <input type="text" name="Apellido(s)" required>
+            <label for="dpi">DPI</label>
+            <input type="number" name="DPI" required>
+            <label for="placa">Placa del Vehiculo</label>
+            <input type="text" name="Placa del vehiculo" required>
+            <label for="descripcion">Descripcion</label>
+            <input type="number" name="Descripcion" required>
+            <label for="telefono">Telefono</label>
+            <input type="number" name="Telefono" required>
+            <label for="correo">Correo</label>
+            <input type="text" name="Correo" required>
+
+            <img src="../img/JARDIN3.jpeg" alt="">
+            <h5>datos sobre el</h5>
+            <h1 class="titulo">residente</h1>
+
+            <label for="codigo">codigo de residente</label>
+            <input type="number" name="codigo" required>
+            <label for="nombre-rel">Nombre del residente</label>
+            <input type="text" name="Nombre del residente" required>
+            <label for="fecha-ingreso">fecha de ingreso</label>
+            <input type="date" name="fecha de ingreso" required>
+            <label for="num-casa"># de casa</label>
+            <input type="number" name="# de casa" required>
+            <label for="motivo">Motivo de la visita</label>
+            <input type="text" name="Motivo de la visita" required>
+            <hr>
+            <input type="submit" value="Enviar Solicitud"required>
+        </form>
+    </div>
+
+</body>
+</html>

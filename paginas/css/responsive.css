@@ -1,0 +1,111 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 1rem 0 1rem;
+}
+
+.nav .titulo-nav{
+    font-family: var(--font-1);
+    font-size: var(--titulo-s);
+    margin: 1rem;
+}
+
+.nav .navegacion .opciones{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.nav .navegacion .opciones li{
+    margin: 1rem;
+    list-style-type: none;
+}
+
+.nav .navegacion .opciones li a{
+    text-decoration: none;
+    color: black;
+    font-family: var(--font-2);
+    font-size: var(--parrafo-s);
+}
+
+.portada{
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.portada h5{
+    font-family: var(--font-2);
+    font-weight: normal;
+    font-size: var(--parrafo-l);
+    text-align: center;
+    margin: 0;
+}
+
+.portada .titulo{
+    font-family: var(--font-1);
+    font-size: var(--titulo-xl);
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.portada img{
+    max-width: 80%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    margin: 4rem;
+}
+
+.info .fachada-1{
+    display: flex;
+    flex-direction: row;
+}
+
+.info .fachada-1 ul{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.info .fachada-1 h5{
+    font-family: var(--font-2);
+    font-weight: normal;
+    font-size: var(--parrafo-l);
+    text-align: center;
+    margin: 1rem;
+    text-align: left;
+}
+
+.info .fachada-1 .titulo2{
+    font-family: var(--font-1);
+    font-size: var(--titulo-xl);
+    text-align: center;
+    margin: 0.5rem;
+    color: var(--green-light);
+}
+
+.info .fachada-2{
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.info .fachada-2 .patio{
+    margin-right: 1rem;
+    height: 30%;
+    width: 45%;
+}
+
+.info .fachada-2 .ventana{
+    margin-right: 1rem;
+    width: 15%;
+}

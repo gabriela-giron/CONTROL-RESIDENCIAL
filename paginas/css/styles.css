@@ -1,0 +1,8 @@
+/*color*/
+@import url("v-color.css");
+/*letra*/
+@import url("typography.css");
+/*base*/
+@import url("responsive.css");
+/*visitas*/
+@import url("visitas.css");

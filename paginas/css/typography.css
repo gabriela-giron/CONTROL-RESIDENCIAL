@@ -1,0 +1,15 @@
+html {
+    --font-1: 'Abril Fatface', cursive;
+    --font-2: 'Lato', sans-serif;
+
+    --titulo-xxl: 144px;
+    --titulo-xl: 100px;
+    --titulo-l: 72px;
+    --titulo-m: 48px;
+    --titulo-s: 36px;
+
+    --parrafo-xl: 24px;
+    --parrafo-l: 18px;
+    --parrafo-m: 16px;
+    --parrafo-s: 12px;
+}
