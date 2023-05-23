@@ -72,6 +72,14 @@ CREATE TABLE `residente` (
   `CONTRASENIA` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- insercion de usuarios y contraseñas
+
+INSERT INTO `residente` (`ID_RESIDENTE`, `NOMBRE`, `APELLIDO`, `DPI`, `CORREO`, `TELEFONO`, `NUMERO_CASA`, `CONTRASENIA`) 
+VALUES (1, 'Keren', 'Rodriguez', 4587541232, 'keren@rodriguez.com', 45665412, 1, '0a5a5f6907194bba404d67fed4dec84f6f82e474'),
+       (2, 'Cristian', 'Diaz', 2988282270, 'cristian@diaz.com', 25825852, 2, '87b43435284539b2f7f4e4dcab5e78251c243226'),
+       (3, 'Belen', 'Luna', 3216547895, 'belen@luna.com', 84754695, 3, '3beb46aaf0b84145ea72813eecab4a2ba3372905');
+
+
 -- --------------------------------------------------------
 
 --
