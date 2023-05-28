@@ -13,7 +13,7 @@ if(isset($_POST["btn-ingresar"])) {
         $query = "SELECT ID_DETALLE_VISITA, ID_RESIDENTE, FECHA_INGRESO, DIRECCION, ID_STATUS FROM detalle_visita";
 
         // Ejecutar la consulta
-        $result = mysqli_query($conexion, $query);
+        $result = mysqli_query($conn, $query);
 
         // Verificar si hay resultados
         if (mysqli_num_rows($result) > 0) {
