@@ -91,7 +91,15 @@ CREATE TABLE `status` (
   `DESCRIPCION` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
+-- insercion de status 
+
+INSERT INTO `status`(`ID_STATUS`, `DESCRIPCION`)
+VALUES (0,'PENDIENTE'),
+       (1,'APROBADA'),
+       (2,'DENEGADA');
+
+       
+-- ---------------------------------------------------------
 -- Índices para tablas volcadas
 --
 
