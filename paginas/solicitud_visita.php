@@ -2,25 +2,23 @@
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.js"></script>
-    <meta http-equiv="refresh" content="2;url=http://localhost/CONTROL-RESIDENCIAL/paginas/visitas.html">
-
+    <meta http-equiv="refresh" content="5;url=http://localhost/CONTROL-RESIDENCIAL/paginas/visitas.html">
 </head>
-
 <body>
     <?php
     include("conexion.php");
 
     if (isset($_POST['btn-ingresar'])) {
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $dpi = $_POST['dpi'];
-        $placa = $_POST['placa'];
-        $descripcion = $_POST['descripcion'];
-        $telefono = $_POST['telefono'];
-        $correo = $_POST['correo'];
+        $nombre = $_POST['Nombre(s)'];
+        $apellido = $_POST['Apellido(s)'];
+        $dpi = $_POST['DPI'];
+        $placa_vehiculo = $_POST['placa_vehiculo'];
+        $descripcion_vehiculo = $_POST['descripcion_vehiculo'];
+        $telefono = $_POST['Telefono'];
+        $correo = $_POST['Correo'];
 
         // Verificar campos vacíos
-        if (empty($nombre) || empty($apellido) || empty($dpi) || empty($placa) || empty($descripcion) || empty($telefono) || empty($correo)) {
+        if (empty($nombre) || empty($apellido) || empty($dpi) || empty($placa_vehiculo) || empty($descripcion_vehiculo) || empty($telefono) || empty($correo) ) {
             echo '<script>swal.fire("Error", "Por favor complete todos los campos", "error");</script>';
             exit;
         }
@@ -38,44 +36,42 @@
         }
 
         // Verificar fecha de ingreso válida (no anterior a la fecha actual)
-        $fechaIngreso = $_POST['fecha_ingreso'];
-        $fechaActual = date('Y-m-d');
-        if ($fechaIngreso < $fechaActual) {
-            echo '<script>swal.fire("Error", "Seleccione una fecha de ingreso válida", "error");</script>';
+        $fecha_ingreso = $_POST['fecha_ingreso'];
+        $fecha_actual = date('Y-m-d');
+        if ($fecha_ingreso < $fecha_actual) {
+            echo '<script>swal.fire("Error", "Seleccione una fecha de ingreso válida porfavor", "error");</script>';
             exit;
         }
 
-        // Insercion de datos en la tabla datos_residente
-        $consultaDatosResidente = "INSERT INTO datos_residente (nombre, apellido, dpi, placa_vehiculo, descripcion, telefono, correo) VALUES ('$nombre', '$apellido', '$dpi', '$placa', '$descripcion', '$telefono', '$correo')";
-        $execConsultaDatosResidente = mysqli_query($conn, $consultaDatosResidente);
+        // Insercion de datos en la tabla datos_visitante
+        $consultadatos_visitante = "INSERT INTO datos_visitante(nombre, apellido, dpi, placa_vehiculo, descripcion_vehiculo, telefono, correo) VALUES ('$nombre', '$apellido', '$dpi', '$placa_vehiculo', '$descripcion_vehiculo', '$telefono', '$correo')";
+        $execConsultadatos_visitante = mysqli_query($conn, $consultadatos_visitante);
 
-        if (!$execConsultaDatosResidente) {
+        if (!$execConsultadatos_visitante) {
             echo '<script>swal.fire("Error", "Error al ingresar los datos del residente", "error");</script>';
         } else {
-            // Obtener el ID del residente insertado
-            $idResidente = mysqli_insert_id($conn);
+            
+            $id_residente = $_POST['id_residente'];
+            $fecha_ingreso = $_POST['fecha_ingreso'];
+            $direccion = $_POST['direccion'];
+            $motivo_visita = $_POST['motivo_visita'];
 
-            $codigoResidente = $_POST['id_residente'];
-            $nombreResidente = $_POST['nombre'];
-            $numeroCasa = $_POST['numero_casa'];
-            $motivoVisita = $_POST['motivo_visita'];
-
-            // Verificar campos vacíos del residente
-            if (empty($codigoResidente) || empty($nombreResidente) || empty($numeroCasa) || empty($motivoVisita)) {
-                echo '<script>swal.fire("Error", "Por favor complete todos los campos del residente", "error");</script>';
+            // Verificar campos vacíos visitante
+            if (empty($id_residente) || empty($fecha_ingreso) || empty($direccion) || empty($motivo_visita)) {
+                echo '<script>swal.fire("Error", "Por favor complete todos los campos del visitante", "error");</script>';
                 exit;
             }
 
             // Insertar datos en la tabla detalle_visita
-            $consultaDetalleVisita = "INSERT INTO detalle_visita (codigo_residente, nombre_residente, fecha_ingreso, numero_casa, motivo_visita) VALUES ('$codigoResidente', '$nombreResidente', '$fechaIngreso', '$numeroCasa', '$motivoVisita')";
-            $execConsultaDetalleVisita = mysqli_query($conn, $consultaDetalleVisita);
+            $consultadetalle_visita = "INSERT INTO detalle_visita (id_residente, fecha_ingreso, direccion, motivo_visita) VALUES ('$id_residente', '$fecha_ingreso', '$direccion', '$motivo_visita')";
+            $execConsultadetalle_visita = mysqli_query($conn, $consultadetalle_visita);
 
-            if (!$execConsultaDetalleVisita) {
+            if (!$execConsultadetalle_visita) {
                 echo '<script>swal.fire("Error", "Error al ingresar los detalles de la visita", "error");</script>';
             } else {
                 echo '<script>swal.fire("Éxito", "Usuario ingresado con éxito", "success").then(() => {
                     window.location.href = "../paginas/visitas.html";
-                        });</script>';
+                });</script>';
             }
         }
     }
