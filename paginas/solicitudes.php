@@ -35,9 +35,11 @@ include("conexion.php");
             </tr>
             
             <?php
-                //$pendiente=
-               // $aprobada=
-                //$denegada=
+                $pendiente= "SELECT * FROM VISTA_SOLICITUD WHERE ID_STATUS=0";
+                $aprobada= "SELECT * FROM VISTA_SOLICITUD WHERE ID_STATUS=1";
+                $denegada="SELECT * FROM VISTA_SOLICITUD WHERE ID_STATUS=2";
+
+                
             ?>
         </table>
 

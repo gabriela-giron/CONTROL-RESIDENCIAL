@@ -19,7 +19,7 @@
         <nav class="navegacion">
             <ul class="opciones">
                 <li><a href="visitas.html">Solicitar visita</a></li>
-                <li><a href="#">Residentes</a></li>
+                <li><a href="residentes-login.html">Residentes</a></li>
             </ul>
         </nav>
     </div>

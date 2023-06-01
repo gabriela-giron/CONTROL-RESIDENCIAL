@@ -15,8 +15,8 @@ if (isset($_POST['btn-ingresar'])) {
     $dpi = $_POST['dpi'];
     $placa_vehiculo = $_POST['placa_vehiculo'];
     $descripcion_vehiculo = $_POST['descripcion_vehiculo'];
-    $telefono = $_POST['telefono'];
-    $correo = $_POST['correo'];
+    $telefono = $_POST['Telefono'];
+    $correo = $_POST['Correo'];
 
     // Validaciones y verificaciones de datos (código omitido por brevedad)
 
