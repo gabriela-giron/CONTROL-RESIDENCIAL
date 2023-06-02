@@ -33,13 +33,40 @@ include("conexion.php");
                 <th align="center">Aceptados</th>
                 <th align="center">Denegados</th>
             </tr>
-            
-            <?php
-                $pendiente= "SELECT * FROM VISTA_SOLICITUD WHERE ID_STATUS=0";
-                $aprobada= "SELECT * FROM VISTA_SOLICITUD WHERE ID_STATUS=1";
-                $denegada="SELECT * FROM VISTA_SOLICITUD WHERE ID_STATUS=2";
 
-                
+            <?php
+            $pendiente = "SELECT NOMBRE_COMPLETO FROM VISTA_SOLICITUD WHERE ID_STATUS = 0";
+            $aprobada = "SELECT NOMBRE_COMPLETO FROM VISTA_SOLICITUD WHERE ID_STATUS = 1";
+            $denegada = "SELECT NOMBRE_COMPLETO FROM VISTA_SOLICITUD WHERE ID_STATUS = 2";
+            $ejecutarp = mysqli_query($conn, $pendiente);
+            $ejecutara = mysqli_query($conn, $aprobada);
+            $ejecutard = mysqli_query($conn, $denegada);
+
+            $pendientes = array();
+            $aceptados = array();
+            $denegados = array();
+
+            while ($busqueda = mysqli_fetch_array($ejecutarp)) {
+                $pendientes[] = $busqueda[0];
+            }
+
+            while ($busqueda2 = mysqli_fetch_array($ejecutara)) {
+                $aceptados[] = $busqueda2[0];
+            }
+
+            while ($busqueda3 = mysqli_fetch_array($ejecutard)) {
+                $denegados[] = $busqueda3[0];
+            }
+
+            $maxRows = max(count($pendientes), count($aceptados), count($denegados));
+
+            for ($i = 0; $i < $maxRows; $i++) {
+                echo '<tr>';
+                echo '<td>' . (isset($pendientes[$i]) ? $pendientes[$i] : '') . '</td>';
+                echo '<td>' . (isset($aceptados[$i]) ? $aceptados[$i] : '') . '</td>';
+                echo '<td>' . (isset($denegados[$i]) ? $denegados[$i] : '') . '</td>';
+                echo '</tr>';
+            }
             ?>
         </table>
 
