@@ -1,5 +1,10 @@
+
+
+
 <?php
 include("conexion.php");
+
+
 
 if(isset($_POST["btn-ingresar"])) {
     $correo = $_POST["Correo"];
@@ -52,15 +57,35 @@ if(isset($_POST["btn-ingresar"])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Código del encabezado... -->
+     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Garita.</title>
 </head>
 <body>
-    <!-- Código del cuerpo de la página... -->
-
-    <div class="log-in">
+   
+<div class="nav">
+        <h3 class="titulo-nav">Los Jardines.</h3>
+        <nav class="navegacion">
+            <ul class="opciones">
+                <li><a href="visitas.html">Solicitar visita</a></li>
+                <li><a href="#">Residentes</a></li>
+		<li><a href="garita.php">Garita</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="form1">
         <img src="../img/JARDIN2.jpeg" alt="">
-        <h1 class="titulo">Iniciar Sesión.</h1>
+        
         <form method="POST">
+	    <h1 class="titulo">Iniciar Sesión.</h1>
             <label for="correo">Correo</label>
             <input type="text" name="Correo" required>
             <label for="passw">Contraseña</label>
