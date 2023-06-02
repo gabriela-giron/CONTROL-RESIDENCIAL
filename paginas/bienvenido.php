@@ -41,6 +41,8 @@ $numeroCasa = $fila['NUMERO_CASA'];
     <title>Bienvenido</title>
 </head>
 <body>
+
+<div class="datos">
     <h1>Bienvenido, <?php echo $nombre; ?>!</h1>
     <p>codigo: <?php echo $codigo; ?></p>
     <p>Nombre: <?php echo $nombre . ' ' . $apellido; ?></p>
@@ -48,7 +50,7 @@ $numeroCasa = $fila['NUMERO_CASA'];
     <p>Número de Casa: <?php echo $numeroCasa; ?></p>
     <p>Correo Electronico: <?php echo $correo; ?></p>
     <p>Teléfono: <?php echo $telefono; ?></p>
-   
+</div>
 
 
     <br>
