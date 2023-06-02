@@ -49,5 +49,65 @@ $numeroCasa = $fila['NUMERO_CASA'];
     <p>Correo Electronico: <?php echo $correo; ?></p>
     <p>Teléfono: <?php echo $telefono; ?></p>
    
+
+
+    <br>
+    <br>
+    <br>
+
+     <section class="fachada-1">
+        <h1 align="center">Solicitudes de ingreso</h1>
+        <p align="center">Te mostramos las solicitudes de ingreso que has recibido últimamente.</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <table style="border-spacing: 50px;" align="center">
+            <tr>
+                <th align="center">Pendientes</th>
+                <th align="center">Aceptados</th>
+                <th align="center">Denegados</th>
+            </tr>
+
+            <?php
+            //codigo para mostrar las solicitudes en la tabla
+            $pendiente = "SELECT NOMBRE_COMPLETO FROM VISTA_SOLICITUD WHERE ID_STATUS = 0 AND ID_RESIDENTE=".$codigo;
+            $aprobada = "SELECT NOMBRE_COMPLETO FROM VISTA_SOLICITUD WHERE ID_STATUS = 1 AND ID_RESIDENTE=".$codigo;
+            $denegada = "SELECT NOMBRE_COMPLETO FROM VISTA_SOLICITUD WHERE ID_STATUS = 2 AND ID_RESIDENTE=".$codigo;
+            $ejecutarp = mysqli_query($conn, $pendiente);
+            $ejecutara = mysqli_query($conn, $aprobada);
+            $ejecutard = mysqli_query($conn, $denegada);
+
+            $pendientes = array();
+            $aceptados = array();
+            $denegados = array();
+
+            while ($busqueda = mysqli_fetch_array($ejecutarp)) {
+                $pendientes[] = $busqueda[0];
+            }
+
+            while ($busqueda2 = mysqli_fetch_array($ejecutara)) {
+                $aceptados[] = $busqueda2[0];
+            }
+
+            while ($busqueda3 = mysqli_fetch_array($ejecutard)) {
+                $denegados[] = $busqueda3[0];
+            }
+
+            $maxRows = max(count($pendientes), count($aceptados), count($denegados));
+
+            for ($i = 0; $i < $maxRows; $i++) {
+                echo '<tr>';
+                echo '<td>' . (isset($pendientes[$i]) ? $pendientes[$i] : '') . '</td>';
+                echo '<td>' . (isset($aceptados[$i]) ? $aceptados[$i] : '') . '</td>';
+                echo '<td>' . (isset($denegados[$i]) ? $denegados[$i] : '') . '</td>';
+                echo '</tr>';
+            }
+            ?>
+        </table>
+
+
+    </section>
+
 </body>
 </html>
