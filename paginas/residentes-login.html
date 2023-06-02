@@ -30,18 +30,20 @@ include("conexion.php");
         </nav>
     </div>
     <hr>
-    <div class="log-in">
-        <img src="../img/JARDIN2.jpeg" alt="">
-        <h1 class="titulo">Iniciar Sesión.</h1>
+   <div class="form1">
+    <img src="../img/JARDIN2.jpeg" alt="">
+    
+    <div class="formulario">
         <form action="validarusuario.php" method="post">
+	    <h1 class="titulo">Iniciar Sesión.</h1>
             <label for="correo">Correo</label>
             <input type="text" name="Correo" required>
             <label for="passw">Contraseña</label>
             <input type="password" name="Contraseña" required>
-            
             <hr>
-	    <button class="log-in" name="btn-ingresar">Enviar Solicitud</button>
+            <button class="log-in" name="btn-ingresar">Enviar Solicitud</button>
         </form>
     </div>
+</div>
 </body>
 </html>
