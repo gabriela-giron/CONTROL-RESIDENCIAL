@@ -60,7 +60,8 @@ if (isset($_POST["btn-ingresar"])) {
         echo "Inicio de sesión exitoso";
 
         // Consulta SQL para obtener los campos deseados de la tabla detalle_visita
-        $query = "SELECT DETALLE_VISITA.ID_DETALLE_VISITA, DETALLE_VISITA.ID_RESIDENTE, DETALLE_VISITA.FECHA_INGRESO, DETALLE_VISITA.DIRECCION, STATUS.DESCRIPCION FROM detalle_visita,status WHERE DETALLE_VISITA.ID_STATUS=STATUS.ID_STATUS";
+        $query = "SELECT DETALLE_VISITA.ID_DETALLE_VISITA, DETALLE_VISITA.ID_RESIDENTE, DETALLE_VISITA.FECHA_INGRESO, DETALLE_VISITA.DIRECCION, STATUS.DESCRIPCION
+        FROM detalle_visita,status WHERE DETALLE_VISITA.ID_STATUS=STATUS.ID_STATUS AND DETALLE_VISITA.FECHA_INGRESO > CURDATE()";
 
         // Ejecutar la consulta
         $result = mysqli_query($conn, $query);
